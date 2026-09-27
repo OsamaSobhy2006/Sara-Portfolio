@@ -1,0 +1,358 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+
+  padding-top: 70px;
+  padding-bottom: 100px;
+
+  /*
+    The hero itself keeps the normal layout/container width.
+    The ::before below will extend the background
+    to the full viewport width.
+  */
+
+  background: transparent;
+}
+
+
+/* ========================================
+   FULL-WIDTH HERO BACKGROUND
+======================================== */
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+
+  z-index: -1;
+
+  top: 0;
+  bottom: 0;
+
+  /*
+    Extend the background outside the constrained
+    hero element to reach both viewport edges.
+  */
+  left: calc(50% - 50vw);
+  right: calc(50% - 50vw);
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(99, 102, 241, 0.15),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(139, 92, 246, 0.18),
+      transparent 35%
+    );
+
+  pointer-events: none;
+}
+
+
+/* ========================================
+   HERO GRID
+======================================== */
+
+.hero-grid {
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+  align-items: center;
+
+  gap: 3rem;
+}
+
+
+/* ========================================
+   HERO CONTENT
+======================================== */
+
+.hero-copy {
+  position: relative;
+
+  /*
+    IMPORTANT:
+    This controls ONLY the content width.
+    The background is NOT here.
+  */
+  width: 100%;
+  max-width: 760px;
+
+  /*
+    In RTL this keeps the content on the RIGHT.
+  */
+  margin-left: 0;
+  margin-right: 0;
+
+  text-align: right;
+}
+
+
+/* ========================================
+   EYEBROW
+======================================== */
+
+.eyebrow {
+  display: inline-block;
+
+  padding: 0.45rem 0.8rem;
+
+  border-radius: 999px;
+
+  background: rgba(99, 102, 241, 0.1);
+
+  color: #4f46e5;
+
+  font-weight: 700;
+
+  font-size: 0.8rem;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+
+/* ========================================
+   MAIN HEADING
+======================================== */
+
+.hero-copy h1 {
+  margin: 0.8rem 0 1rem;
+
+  font-size: clamp(2.7rem, 5vw, 5rem);
+
+  line-height: 1.05;
+
+  color: #0f172a;
+}
+
+
+/* ========================================
+   JOB TITLE
+======================================== */
+
+.hero-copy h2 {
+  font-size: clamp(1.1rem, 2vw, 2rem);
+
+  line-height: 1.4;
+
+  margin-bottom: 1rem;
+
+  color: #4f46e5;
+}
+
+
+/* ========================================
+   DESCRIPTION
+======================================== */
+
+.hero-copy p {
+  max-width: 600px;
+
+  /*
+    Keep paragraph aligned to the RIGHT.
+  */
+  margin-left: auto;
+  margin-right: 0;
+
+  font-size: 1.08rem;
+
+  line-height: 1.8;
+
+  color: #64748b;
+}
+
+
+/* ========================================
+   BUTTONS
+======================================== */
+
+.hero-actions {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 1rem;
+
+  margin-top: 2rem;
+}
+
+
+.btn {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 0.9rem 1.5rem;
+
+  text-decoration: none;
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  border: none;
+
+  border-radius: 999px;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+
+/* ========================================
+   PRIMARY BUTTON
+======================================== */
+
+.btn-primary {
+  background: linear-gradient(
+    135deg,
+    #4f46e5,
+    #8b5cf6
+  );
+
+  color: #fff;
+
+  box-shadow:
+    0 16px 32px rgba(99, 102, 241, 0.25);
+}
+
+
+/* ========================================
+   SECONDARY BUTTON
+======================================== */
+
+.btn-secondary {
+  background: rgba(15, 23, 42, 0.04);
+
+  color: #0f172a;
+}
+
+
+/* ========================================
+   MINI STATS
+======================================== */
+
+.mini-stats {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(90px, 1fr));
+
+  gap: 1rem;
+
+  margin-top: 2.2rem;
+}
+
+
+.stat-box {
+  background: rgba(255, 255, 255, 0.9);
+
+  border: 1px solid rgba(148, 163, 184, 0.15);
+
+  border-radius: 18px;
+
+  padding: 1rem 0.8rem;
+
+  box-shadow:
+    0 18px 30px rgba(15, 23, 42, 0.05);
+
+  text-align: center;
+}
+
+
+.stat-box strong {
+  display: block;
+
+  font-size: 1.2rem;
+
+  color: #0f172a;
+}
+
+
+.stat-box span {
+  color: #64748b;
+
+  font-size: 0.74rem;
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+
+  .hero {
+    padding-top: 60px;
+    padding-bottom: 80px;
+  }
+
+  .hero-copy {
+    max-width: 100%;
+  }
+
+  .mini-stats {
+    grid-template-columns:
+      repeat(2, minmax(90px, 1fr));
+  }
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 640px) {
+
+  .hero {
+    padding-top: 50px;
+    padding-bottom: 70px;
+  }
+
+  .hero-copy {
+    max-width: 100%;
+
+    text-align: right;
+  }
+
+  .hero-copy h1 {
+    font-size: 2.7rem;
+  }
+
+  .hero-copy h2 {
+    font-size: 1.25rem;
+  }
+
+  .hero-copy p {
+    font-size: 1rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .mini-stats {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,41 @@
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <h4>{{ site.footer.name }}</h4>
+      <p>{{ site.footer.title }}</p>
+    </div>
+
+    <div>
+      <h5>{{ currentLanguage === 'ar' ? 'روابط سريعة' : 'Quick Links' }}</h5>
+      <ul class="footer-links">
+        <li>
+          <a href="#home">{{ site.nav.home }}</a>
+        </li>
+        <li>
+          <a href="#about">{{ site.nav.about }}</a>
+        </li>
+        <li>
+          <a href="#skills">{{ site.nav.skills }}</a>
+        </li>
+        <li>
+          <a href="#projects">{{ site.nav.projects }}</a>
+        </li>
+        <li>
+          <a href="#contact">{{ site.nav.contact }}</a>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <h5>{{ currentLanguage === 'ar' ? 'تواصل' : 'Social' }}</h5>
+      <ul class="footer-links">
+        <li><a [href]="site.contact.linkedin" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="mailto:sora.ahmed.data@email.com">Email</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>{{ site.footer.copyright }}</p>
+  </div>
+</footer>

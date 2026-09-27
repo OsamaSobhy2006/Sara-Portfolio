@@ -1,0 +1,74 @@
+<section id="contact" class="section contact-section">
+  <div class="container contact-grid">
+    <div class="contact-copy reveal">
+      <span class="section-tag">{{ site.nav.contact }}</span>
+      <h3>{{ site.contact.heading }}</h3>
+      <p>{{ site.contact.description }}</p>
+
+      <div class="contact-links">
+        <a href="mailto:sora.ahmed.data@email.com"
+          ><i class="fa-solid fa-envelope"></i> {{ site.contact.email }}</a
+        >
+        <a [href]="site.contact.linkedin" target="_blank" rel="noopener"
+          ><i class="fa-brands fa-linkedin"></i> LinkedIn</a
+        >
+      </div>
+    </div>
+
+    <form class="contact-form reveal" (ngSubmit)="submitForm()" novalidate>
+      <div class="field">
+        <label for="name">{{ site.contact.form.name }}</label>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          [ngModel]="contactForm.name"
+          (ngModelChange)="updateField('name', $event)"
+          required
+        />
+      </div>
+
+      <div class="field">
+        <label for="email">{{ site.contact.form.email }}</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          [ngModel]="contactForm.email"
+          (ngModelChange)="updateField('email', $event)"
+          required
+        />
+      </div>
+
+      <div class="field">
+        <label for="subject">{{ site.contact.form.subject }}</label>
+        <input
+          id="subject"
+          name="subject"
+          type="text"
+          [ngModel]="contactForm.subject"
+          (ngModelChange)="updateField('subject', $event)"
+          required
+        />
+      </div>
+
+      <div class="field">
+        <label for="message">{{ site.contact.form.message }}</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+          [ngModel]="contactForm.message"
+          (ngModelChange)="updateField('message', $event)"
+          required
+        ></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary form-submit">
+        {{ site.contact.form.submit }}
+      </button>
+
+      <p class="form-success" *ngIf="contactSuccess">{{ site.contact.form.success }}</p>
+    </form>
+  </div>
+</section>

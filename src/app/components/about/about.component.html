@@ -1,0 +1,27 @@
+<section id="about" class="section about-section">
+  <div class="container about-grid">
+    <div class="about-image reveal">
+      <img
+        src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80"
+        alt="Professional workspace"
+      />
+    </div>
+
+    <div class="about-content reveal">
+      <span class="section-tag">{{ site.nav.about }}</span>
+      <h3>{{ site.about.heading }}</h3>
+      <p class="lead">{{ site.about.text }}</p>
+
+      <ul class="highlight-list">
+        <li *ngFor="let item of site.about.highlights">{{ item }}</li>
+      </ul>
+
+      <div class="about-cards">
+        <div *ngFor="let card of site.about.cards" class="info-card">
+          <strong>{{ card.value }}</strong>
+          <span>{{ card.label }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

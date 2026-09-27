@@ -1,0 +1,38 @@
+<header class="site-header" [class.scrolled]="scrolled">
+  <nav class="container nav-bar" aria-label="Main navigation">
+    <a class="brand" href="#home" aria-label="Sara Ahmed Home">
+      <span class="brand-mark">SA</span>
+      <span class="brand-text">
+        <strong>{{ site.hero.name }}</strong>
+        <small>{{ site.footer.title }}</small>
+      </span>
+    </a>
+
+    <button
+      class="nav-toggle"
+      type="button"
+      (click)="toggleMenu()"
+      aria-label="Toggle navigation menu"
+      [attr.aria-expanded]="menuOpen"
+    >
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="nav-links" [class.open]="menuOpen">
+      <a href="#home" (click)="closeMenu()">{{ site.nav.home }}</a>
+      <a href="#about" (click)="closeMenu()">{{ site.nav.about }}</a>
+      <a href="#skills" (click)="closeMenu()">{{ site.nav.skills }}</a>
+      <a href="#services" (click)="closeMenu()">{{ site.nav.services }}</a>
+      <a href="#projects" (click)="closeMenu()">{{ site.nav.projects }}</a>
+      <a href="#contact" (click)="closeMenu()">{{ site.nav.contact }}</a>
+
+      <button class="lang-toggle" type="button" (click)="toggleLanguage()">
+        {{ currentLanguage === 'ar' ? 'EN' : 'AR' }}
+      </button>
+
+      <a class="btn btn-primary nav-cta" href="#contact" (click)="closeMenu()">{{
+        site.nav.cta
+      }}</a>
+    </div>
+  </nav>
+</header>

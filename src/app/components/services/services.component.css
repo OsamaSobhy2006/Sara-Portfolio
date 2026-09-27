@@ -1,0 +1,177 @@
+.services-section {
+  padding-top: 90px;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 2.75rem;
+}
+
+.section-heading h3 {
+  margin: 1rem 0 0;
+
+  font-size: clamp(2rem, 4vw, 3rem);
+
+  line-height: 1.2;
+
+  color: #0f172a;
+}
+
+.section-tag {
+  display: inline-block;
+
+  padding: 0.55rem 1rem;
+
+  border-radius: 999px;
+
+  background: rgba(99, 102, 241, 0.1);
+
+  color: #4f46e5;
+
+  font-size: 0.8rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+
+/* ========================================
+   SERVICES GRID
+======================================== */
+
+.services-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 650px));
+  justify-content: center;
+
+  gap: 1.25rem;
+
+  align-items: stretch;
+}
+
+
+/* ========================================
+   SERVICE CARD
+======================================== */
+
+.service-card {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: flex-start;
+
+  min-height: 220px;
+
+  background: rgba(255, 255, 255, 0.9);
+
+  border-radius: 18px;
+
+  border: 1px solid rgba(148, 163, 184, 0.16);
+
+  box-shadow:
+    0 12px 24px rgba(15, 23, 42, 0.04);
+
+  padding: 1.25rem 1.1rem;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+.service-card:hover {
+  transform: translateY(-7px);
+
+  box-shadow:
+    0 24px 35px rgba(99, 102, 241, 0.08);
+
+  border-color:
+    rgba(99, 102, 241, 0.18);
+}
+
+
+/* ========================================
+   SERVICE ICON
+======================================== */
+
+.service-icon {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 56px;
+
+  height: 56px;
+
+  margin-bottom: 1rem;
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(99, 102, 241, 0.12),
+      rgba(139, 92, 246, 0.12)
+    );
+
+  color: #4f46e5;
+
+  font-size: 1.3rem;
+}
+
+
+/* ========================================
+   SERVICE TITLE
+======================================== */
+
+.service-card h4 {
+  margin: 0 0 0.75rem;
+
+  font-size:
+    clamp(1.15rem, 1.6vw, 1.75rem);
+
+  color: #0f172a;
+
+  line-height: 1.35;
+}
+
+
+/* ========================================
+   SERVICE DESCRIPTION
+======================================== */
+
+.service-card p {
+  color: #64748b;
+
+  line-height: 1.7;
+
+  margin: 0;
+
+  font-size: 0.97rem;
+}
+
+
+/* ========================================
+   TABLET / MOBILE
+======================================== */
+
+@media (max-width: 980px) {
+
+  .services-grid {
+    grid-template-columns: 1fr;
+
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    min-height: 220px;
+  }
+}

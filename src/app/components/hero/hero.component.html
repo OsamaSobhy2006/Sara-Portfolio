@@ -1,0 +1,22 @@
+<section id="home" class="hero section">
+  <div class="container hero-grid">
+    <div class="hero-copy reveal">
+      <span class="eyebrow">{{ site.hero.eyebrow }}</span>
+      <h1>{{ site.hero.name }}</h1>
+      <h2>{{ site.hero.title }}</h2>
+      <p>{{ site.hero.description }}</p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#projects">{{ site.hero.buttonPrimary }}</a>
+        <a class="btn btn-secondary" href="#contact">{{ site.hero.buttonSecondary }}</a>
+      </div>
+
+      <div class="mini-stats" aria-label="Portfolio statistics">
+        <div *ngFor="let stat of site.hero.stats" class="stat-box">
+          <strong>{{ stat.value }}</strong>
+          <span>{{ stat.label }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

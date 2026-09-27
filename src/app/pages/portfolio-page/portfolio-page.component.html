@@ -1,0 +1,58 @@
+<div class="page-shell">
+  <app-navbar
+    [site]="site"
+    [currentLanguage]="currentLanguage"
+    [menuOpen]="menuOpen"
+    [scrolled]="scrolled()"
+    (languageToggle)="toggleLanguage()"
+    (menuToggle)="toggleMenu()"
+    (closeMenuRequest)="closeMenu()"
+  ></app-navbar>
+
+  <main>
+    <app-hero [site]="site"></app-hero>
+    <app-about [site]="site"></app-about>
+    <app-skills [site]="site"></app-skills>
+    <app-services [site]="site"></app-services>
+    <app-projects [site]="site" (projectSelected)="openProject($event)"></app-projects>
+    <app-contact
+      [site]="site"
+      [contactForm]="contactForm"
+      [contactSuccess]="contactSuccess"
+      (submitFormRequest)="submitForm()"
+      (formUpdate)="updateContactForm($event)"
+    ></app-contact>
+  </main>
+
+  <app-footer [site]="site" [currentLanguage]="currentLanguage"></app-footer>
+
+  <div
+    class="modal-backdrop"
+    *ngIf="showProjectModal && selectedProject"
+    (click)="closeProjectModal()"
+  >
+    <div class="project-modal" (click)="$event.stopPropagation()">
+      <button
+        class="modal-close"
+        type="button"
+        (click)="closeProjectModal()"
+        aria-label="Close project info"
+      >
+        ×
+      </button>
+      <div
+        class="modal-media"
+        [style.background-image]="'url(' + selectedProject.image + ')'"
+        aria-label="Project preview"
+      ></div>
+      <div class="modal-body">
+        <span class="section-tag">{{ selectedProject.technology }}</span>
+        <h4>{{ selectedProject.title }}</h4>
+        <p>{{ selectedProject.description }}</p>
+        <div class="tag-list">
+          <span *ngFor="let tag of selectedProject.tags">{{ tag }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

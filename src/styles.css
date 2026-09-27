@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Inter', 'Cairo', sans-serif;
+
+  background:
+    linear-gradient(
+      180deg,
+      #f8fafc 0%,
+      #eef2ff 100%
+    );
+
+  color: #0f172a;
+}
+
+html[dir='rtl'] body {
+  font-family: 'Cairo', 'Inter', sans-serif;
+}
+
+a,
+button,
+input,
+textarea {
+  transition: all 0.25s ease;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+
+/* ========================================
+   GLOBAL PAGE
+======================================== */
+
+.page-shell {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+
+/* ========================================
+   CONTAINER
+======================================== */
+
+.container {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+
+/* ========================================
+   SECTIONS
+======================================== */
+
+.section {
+  padding: 110px 0;
+}
+
+
+/* ========================================
+   SECTION TAG
+======================================== */
+
+.section-tag {
+  display: inline-block;
+
+  padding: 0.55rem 1rem;
+
+  border-radius: 999px;
+
+  background: rgba(99, 102, 241, 0.1);
+
+  color: #6366f1;
+
+  font-size: 0.8rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+
+/* ========================================
+   REVEAL ANIMATION
+======================================== */
+
+.reveal {
+  opacity: 0;
+
+  transform: translateY(24px);
+
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+.card-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.card-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+
+    transform: none;
+
+    transition: none;
+  }
+}

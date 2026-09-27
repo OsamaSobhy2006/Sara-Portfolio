@@ -1,0 +1,45 @@
+<section id="skills" class="section skills-section">
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <span class="section-tag">
+        {{ site.nav.skills }}
+      </span>
+
+      <h3>
+        {{ site.skills.heading }}
+      </h3>
+
+      <p>
+        {{ site.skills.description }}
+      </p>
+    </div>
+
+    <div class="skills-grid">
+      <div
+        *ngFor="let group of site.skills.groups"
+        class="skill-group"
+      >
+        <h4>
+          {{ group.title }}
+        </h4>
+
+        <div class="skill-list">
+          <div
+            *ngFor="let item of group.items"
+            class="skill-item"
+          >
+            <span class="skill-icon">
+              <i class="fa-solid fa-code"></i>
+            </span>
+
+            <span>
+              {{ item }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
